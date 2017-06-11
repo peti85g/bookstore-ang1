@@ -1,0 +1,55 @@
+<!DOCTYPE>
+<html>
+    <!--<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js'>
+        </script>-->
+    <head>
+        <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js'>
+        </script>
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <title>Bookstore app</title>
+
+    </head>
+
+    <body>
+        <div class="container" ng-controller="myCtrl" ng-app="myApp" ng controller='addBook'>
+        <h1><center>Bookstore booklist</center></h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                    <th>Inventory</th>
+                </tr>
+            </thead>
+            <tbody>
+                <td><input class="form-control" ng-model="book.title"></td>
+                <td><input class="form-control" ng-model="book.author"></td>
+                <td><input class="form-control" ng-model="book.isbn"></td>
+                <td><button class='btn btn-primary' ng-click="addBook()">Add book</button></td>
+                <td><button class='btn btn-primary' ng-click="updateBook()">Update book</button></td>
+                <td><button class='btn btn-primary' ng-click="clearScope()">New volume</button></td>
+                
+                <tr ng-repeat="book in bookstore">
+
+                    <td>{{book.title}}</td>
+                    <td>{{book.author}}</td>
+                    <td>{{book.isbn}}</td>
+                    <td><button class="btn btn-danger" ng-click=removeBook(book._id)>Remove book</button> </td>
+                    <td><button class="btn btn-danger" ng-click=editBook(book._id)>Edit book</button> </td>
+
+                </tr>
+                
+            </tbody>
+        </table>
+        </div>
+        <script src='controllers/controller.js'>
+        </script>
+    </body>        
+</html>    
